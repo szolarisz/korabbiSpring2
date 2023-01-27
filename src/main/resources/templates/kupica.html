@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${pageTitle}">Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" href="../static/css/main.css">
+</head>
+<body>
+<h1 th:text="${headerOne}">Első Spring Boot projectem</h1>
+<img src="./images/yebo.png" alt="Kép" title="Nagyon morcos">
+<h2>Igyál egy kupicával!</h2>
+<h3>Ez egy cím</h3>
+<h4>Létrehozás dátuma: 2022.12.15</h4>
+<p>Ez a Thymeleaf demonstrálására van itt</p>
+<p>Készítette: KT</p>
+<article th:each="story: ${stories}">
+     <header>
+<h1 th:text="${story.title}"></h1>
+     </header>
+    <section>
+        <p>Készült: <span th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}"></span></p>
+        <p th:utext="${story.content}"></p>
+    </section>
+    <footer>
+        <p>Beküldte: <span th:text="${story.author}"></span></p>
+    </footer>
+</article>
+<footer th:text="#{footerText}">
+    Készült az angol kisasszonyok megbízásából
+</footer>
+</body>
+</html>
