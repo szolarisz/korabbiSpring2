@@ -52,4 +52,12 @@ public class HomeController {
        // result.get( result.size()-1).setPosted( new Date() );
         return result;
     }
+
+    @RequestMapping("/semmi/{id}")
+    public String searchForUser(@PathVariable(value="id") String id) throws Exception{
+        if( id.equals("2")) {
+            throw new Exception("Nincs ilyen id-jű felhasználó");
+        }
+        return "kupica";
+    }
 }
